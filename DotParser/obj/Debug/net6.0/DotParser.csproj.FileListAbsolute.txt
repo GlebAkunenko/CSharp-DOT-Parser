@@ -1,0 +1,15 @@
+D:\Проекты\Visual Studio\DotParser\DotParser\bin\Debug\net6.0\DotParser.exe
+D:\Проекты\Visual Studio\DotParser\DotParser\bin\Debug\net6.0\DotParser.deps.json
+D:\Проекты\Visual Studio\DotParser\DotParser\bin\Debug\net6.0\DotParser.runtimeconfig.json
+D:\Проекты\Visual Studio\DotParser\DotParser\bin\Debug\net6.0\DotParser.dll
+D:\Проекты\Visual Studio\DotParser\DotParser\bin\Debug\net6.0\DotParser.pdb
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.csproj.AssemblyReference.cache
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.AssemblyInfoInputs.cache
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.AssemblyInfo.cs
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.csproj.CoreCompileInputs.cache
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.dll
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\refint\DotParser.dll
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.pdb
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.genruntimeconfig.cache
+D:\Проекты\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\ref\DotParser.dll
