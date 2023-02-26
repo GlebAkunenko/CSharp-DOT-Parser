@@ -13,15 +13,6 @@ public class AttributesParser : IAttributeParser
         return result;
     }
 
-    public bool HasAttributes(string str)
-    {
-        int openBrackets = Count(str, '[');
-        int closeBrackets = Count(str, ']');
-        if (openBrackets != closeBrackets || openBrackets > 2)
-            throw new DotSyntaxException("Brackets error");
-        return openBrackets == 1;
-    }
-
     public Attribute[] FromString(string s)
     {
         s = s.Trim().Trim('[', ']');
@@ -39,5 +30,14 @@ public class AttributesParser : IAttributeParser
         }
 
         return output;
+    }
+
+    public bool HasAttributes(string str)
+    {
+        int openBrackets = Count(str, '[');
+        int closeBrackets = Count(str, ']');
+        if (openBrackets != closeBrackets || openBrackets > 2)
+            throw new DotSyntaxException("Brackets error");
+        return openBrackets == 1;
     }
 }

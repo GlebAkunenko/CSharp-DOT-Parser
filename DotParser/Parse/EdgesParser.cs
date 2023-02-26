@@ -1,7 +1,6 @@
 ﻿using DotParser.DOT;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using Attribute = DotParser.DOT.Attribute;
 
 namespace DotParser.Parse;
 
@@ -16,34 +15,30 @@ public class EdgesParser : IEdgesParser
         _isDigraph = isDigraph;
     }
 
-    private bool TryWithdrawAttributes(string given, out string result, out Attribute[] attributes)
+    private Node[] ReadNodes(string str)
     {
-        if (_attributeParser.HasAttributes(given)) {
-            int begin = -1, end = -1;
-            for(int i = 0; i < given.Length; i++) {
-                if (given[i] == '[')
-                    begin = i;
-                if (given[i] == ']')
-                    end = i;
-            }
-            if (begin >= end)
-                throw new DotSyntaxException("Brackets error");
-            string attributeString = "";
-            for (int i = begin; i < end; i++)
-                attributeString += given[i];
+        string[] nodes = str.Split(',');
+        Node[] result = new Node[nodes.Length];
+        for (int i = 0; i < nodes.Length; i++)
+            result[i] = new Node(nodes[i].Trim());
+        return result;
+    }
 
-            attributes = _attributeParser.FromString(attributeString);
-
-            result = "";
-            for (int i = 0; i < begin - 1; i++)
-                result += given[i];
-
-            return true;
+    private void ConnectNodes(Node[] from, Node[] to, List<Edge> container)
+    {
+        void TryAddEdge(Node u, Node v)
+        {
+            Edge e = new Edge(u, v);
+            if (!container.Contains(e))
+                container.Add(e);
         }
-        else {
-            result = given;
-            attributes = null;
-            return false;
+
+        foreach(Node u in from) {
+            foreach (Node v in to) {
+                TryAddEdge(u, v);
+                if (!_isDigraph)
+                    TryAddEdge(v, u);
+            }
         }
     }
 
@@ -51,23 +46,13 @@ public class EdgesParser : IEdgesParser
     {
         List<Edge> result = new List<Edge>();
 
-        void TryAddEdge(Node u, Node v, Attribute[] attributes) {
-            Edge edge = new Edge(u, v, attributes);
-            if (!result.Contains(edge))
-                result.Add(edge);
-        }
-
-        TryWithdrawAttributes(input, out string input2, out Attribute[] attributes);
-
         string separator = _isDigraph ? "->" : "--";
-        string[] nodes = input2.Split(separator);
+        string[] lexemes = input.Split(separator);
 
-        for (int i = 0; i < nodes.Length - 1; i++) {
-            Node u = new Node(nodes[i].Trim());
-            Node v = new Node(nodes[i + 1].Trim());
-            TryAddEdge(u, v, attributes);
-            if (!_isDigraph)
-                TryAddEdge(v, u, attributes);
+        for(int i = 0; i < lexemes.Length - 1; i++) {
+            Node[] from = ReadNodes(lexemes[i]);
+            Node[] to   = ReadNodes(lexemes[i+1]);
+            ConnectNodes(from, to, result);
         }
 
         return result.ToArray();

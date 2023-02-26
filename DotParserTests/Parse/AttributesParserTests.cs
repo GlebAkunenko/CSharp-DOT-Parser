@@ -2,6 +2,7 @@
 using DotParser.Parse;
 using Attribute = DotParser.DOT.Attribute;
 using System.Reflection.Metadata;
+using System.Reflection;
 
 namespace DotParser.Parse.Tests;
 
@@ -45,7 +46,6 @@ public class AttributesParserTests
     {
         string input = "[shape = box, info==true]";
         var parser = new AttributesParser();
-
         parser.FromString(input);
     }
 
@@ -58,7 +58,6 @@ public class AttributesParserTests
         bool actual = parser.HasAttributes(line);
 
         bool expected = true;
-
         Assert.AreEqual(expected, actual);
     }
 
@@ -71,7 +70,6 @@ public class AttributesParserTests
         bool actual = parser.HasAttributes(line);
 
         bool expected = false;
-
         Assert.AreEqual(expected, actual);
     }
 
