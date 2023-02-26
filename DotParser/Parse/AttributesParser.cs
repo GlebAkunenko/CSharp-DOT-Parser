@@ -3,9 +3,9 @@ using Attribute = DotParser.DOT.Attribute;
 
 namespace DotParser.Parse;
 
-public static class AttributesParser
+public class AttributesParser : IAttributeParser
 {
-    public static Attribute[] FromString(string s)
+    public Attribute[] FromString(string s)
     {
         s = s.Trim().Trim('[', ']');
         string[] input = s.Split(',');

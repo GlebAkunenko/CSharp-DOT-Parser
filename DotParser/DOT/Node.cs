@@ -1,6 +1,9 @@
-﻿namespace DotParser.DOT;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
-public class Node
+namespace DotParser.DOT;
+
+public struct Node
 {
     public Node(string name, Attribute[] attributes = null)
     {
