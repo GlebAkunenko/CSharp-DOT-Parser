@@ -6,12 +6,10 @@ namespace DotParser.Parse;
 
 public class EdgesParser : IEdgesParser
 {
-    private IAttributeParser _attributeParser;
     private bool _isDigraph;
 
-    public EdgesParser(IAttributeParser attributeParser, bool isDigraph)
+    public EdgesParser(bool isDigraph)
     {
-        _attributeParser = attributeParser;
         _isDigraph = isDigraph;
     }
 
