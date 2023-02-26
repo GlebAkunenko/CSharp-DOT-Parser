@@ -23,7 +23,7 @@ public class EdgeParserTests
 
 
         bool        expectedResult = true;
-        string      expectedOutput = "a -> b -> b1;";
+        string      expectedOutput = "a -> b -> b1";
         Attribute[] expectedAttr   = new Attribute[] {
             new Attribute("color", "blue"),
             new Attribute("shape", "box")
@@ -38,7 +38,7 @@ public class EdgeParserTests
     public void TryWithdrawAttributes_noAttr_nothing()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), true);
-        string line = "a -> b -> b1;";
+        string line = "a -> b -> b1";
 
         MethodInfo method = edgesParser.GetType().GetMethod("TryWithdrawAttributes", BindingFlags.NonPublic | BindingFlags.Instance);
         object[] args = new object[] { line, null, null };
@@ -61,7 +61,7 @@ public class EdgeParserTests
     public void TryWithdrawAttributes_incorrectAttr_exception()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), true);
-        string line = "a -> b -> b1 [shape];";
+        string line = "a -> b -> b1 [shape]";
 
         MethodInfo method = edgesParser.GetType().GetMethod("TryWithdrawAttributes", BindingFlags.NonPublic | BindingFlags.Instance);
         object[] args = new object[] { line, null, null };
@@ -74,7 +74,7 @@ public class EdgeParserTests
     public void TryWithdrawAttributes_incorrectAttr2_exception()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), true);
-        string line = "a -> b -> b1 [shape==box];";
+        string line = "a -> b -> b1 [shape==box]";
 
         MethodInfo method = edgesParser.GetType().GetMethod("TryWithdrawAttributes", BindingFlags.NonPublic | BindingFlags.Instance);
         object[] args = new object[] { line, null, null };
@@ -83,10 +83,10 @@ public class EdgeParserTests
     }
 
     [TestMethod]
-    public void ParseFromString_acacb_accacbExpected()
+    public void ParseFromString_a2c2a2c2b_a2c1c2a1c2b()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), true);
-        string line = "a -> c -> a->c -> b;";
+        string line = "a -> c -> a->c -> b";
 
         Edge[] expected = new Edge[] {
             new Edge("a", "c"),
@@ -100,10 +100,10 @@ public class EdgeParserTests
     }
 
     [TestMethod]
-    public void ParseFromString_acb_accacbbcExpected()
+    public void ParseFromString_a2c2b_a2c1c2a1c2b1b2c()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), false);
-        string line = "a -- c -- b;";
+        string line = "a -- c -- b";
 
         Edge[] expected = new Edge[] {
             new Edge("a", "c"),
@@ -118,23 +118,49 @@ public class EdgeParserTests
     }
 
     [TestMethod]
+    public void ParseFromString_a2cb2d_a2c1a2b1c2d1b2d()
+    {
+        var edgesParser = new EdgesParser(new AttributesParser(), true);
+        string line = "a -> c,b->d";
+
+        Edge[] actual = edgesParser.ParseFromString(line);
+
+        Edge[] expected = new Edge[] {
+            new Edge("a", "c"),
+            new Edge("a", "b"),
+            new Edge("b", "d"),
+            new Edge("c", "d")
+        };
+
+        CollectionAssert.AreEquivalent(expected, actual);
+    }
+
+    [TestMethod]
+    public void ParseFromString_a2bcd_a2b1a2c1a2d()
+    {
+        var edgesParser = new EdgesParser(new AttributesParser(), true);
+        string line = "a -> b, c, d";
+
+        Edge[] actual = edgesParser.ParseFromString(line);
+
+        Edge[] expected = new Edge[] {
+            new Edge("a", "b"),
+            new Edge("a", "c"),
+            new Edge("a", "d")
+        };
+
+        CollectionAssert.AreEquivalent(expected, actual);
+    }
+
+    [TestMethod]
     public void ParseFromString_wrongSep_zeroEdges()
     {
         var edgesParser = new EdgesParser(new AttributesParser(), true);
-        string line = "a -- c -- b;";
+        string line = "a -- c -- b";
 
         Edge[] actual = edgesParser.ParseFromString(line);
         Edge[] expected = new Edge[0];
 
         CollectionAssert.AreEqual(expected, actual);
-    }
-
-    [ExpectedException(typeof(DotSyntaxException))]
-    [TestMethod]
-    public void ParseFromString_noSimicolom_syntaxErrorExpected()
-    {
-        var edgesParser = new EdgesParser(new AttributesParser(), false);
-        string line = "a -- c -- b";
-        edgesParser.ParseFromString(line);
     }
 }

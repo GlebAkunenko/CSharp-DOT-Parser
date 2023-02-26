@@ -37,7 +37,6 @@ public class EdgesParser : IEdgesParser
             result = "";
             for (int i = 0; i < begin - 1; i++)
                 result += given[i];
-            result += ";";
 
             return true;
         }
@@ -48,17 +47,8 @@ public class EdgesParser : IEdgesParser
         }
     }
 
-    private string ArrangeString(string input)
-    {
-        if (!input.EndsWith(';'))
-            throw new DotSyntaxException("The line must end with a semicolon");
-        return input.Remove(input.Length - 1);
-    }
-
     public Edge[] ParseFromString(string input)
     {
-        input = ArrangeString(input);
-
         List<Edge> result = new List<Edge>();
 
         void TryAddEdge(Node u, Node v, Attribute[] attributes) {
