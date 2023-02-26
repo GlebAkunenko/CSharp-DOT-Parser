@@ -16,26 +16,9 @@ public class EdgesParser : IEdgesParser
         _isDigraph = isDigraph;
     }
 
-    private int Count(string subject, char obj)
-    {
-        int result = 0;
-        foreach (char c in subject)
-            result += (obj == c) ? 1 : 0;
-        return result;
-    }
-
-    private bool HasAttributes(string str)
-    {
-        int openBrackets = Count(str, '[');
-        int closeBrackets = Count(str, ']');
-        if (openBrackets != closeBrackets || openBrackets > 2)
-            throw new DotSyntaxException("Brackets error");
-        return openBrackets == 1;
-    }
-
     private bool TryWithdrawAttributes(string given, out string result, out Attribute[] attributes)
     {
-        if (HasAttributes(given)) {
+        if (_attributeParser.HasAttributes(given)) {
             int begin = -1, end = -1;
             for(int i = 0; i < given.Length; i++) {
                 if (given[i] == '[')

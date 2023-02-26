@@ -5,6 +5,23 @@ namespace DotParser.Parse;
 
 public class AttributesParser : IAttributeParser
 {
+    private int Count(string subject, char obj)
+    {
+        int result = 0;
+        foreach (char c in subject)
+            result += (obj == c) ? 1 : 0;
+        return result;
+    }
+
+    public bool HasAttributes(string str)
+    {
+        int openBrackets = Count(str, '[');
+        int closeBrackets = Count(str, ']');
+        if (openBrackets != closeBrackets || openBrackets > 2)
+            throw new DotSyntaxException("Brackets error");
+        return openBrackets == 1;
+    }
+
     public Attribute[] FromString(string s)
     {
         s = s.Trim().Trim('[', ']');

@@ -48,4 +48,39 @@ public class AttributesParserTests
 
         parser.FromString(input);
     }
+
+    [TestMethod]
+    public void HasAttributes_2attr_true()
+    {
+        string line = "a -> b->c->  d [color=blue,  info   = 134];";
+        var parser = new AttributesParser();
+
+        bool actual = parser.HasAttributes(line);
+
+        bool expected = true;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void HasAttributes_noAttr_false()
+    {
+        string line = "a -> b->c->  d;";
+        var parser = new AttributesParser();
+
+        bool actual = parser.HasAttributes(line);
+
+        bool expected = false;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [ExpectedException(typeof(DotSyntaxException))]
+    [TestMethod]
+    public void HasAttributes_incorrect_exeption()
+    {
+        string line = "a -> b->c->  d [[color=blue,  info   = 134]";
+        var parser = new AttributesParser();
+        parser.HasAttributes(line);
+    }
 }
