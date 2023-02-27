@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Attribute = DotParser.DOT.Attribute;
 using System.Reflection;
 using DotParser.DOT;
 

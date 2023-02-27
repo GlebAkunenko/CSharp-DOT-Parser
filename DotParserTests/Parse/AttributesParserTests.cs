@@ -3,48 +3,54 @@ using DotParser.Parse;
 using Attribute = DotParser.DOT.Attribute;
 using System.Reflection.Metadata;
 using System.Reflection;
+using DotParser.Parse.Dictionary;
 
 namespace DotParser.Parse.Tests;
 
 [TestClass]
 public class AttributesParserTests
 {
+    private static Attribute[] successExpectedDataResult => new Attribute[] {
+        new Attribute("shape", "box"),
+        new Attribute("label", "Hello world"),
+        new Attribute("info", "123"),
+        new Attribute("key", "value")
+    };
+
+    private static IEnumerable<object[]> successExpectedData => new object[][] {
+        new object[] {"[shape=box,label=\"Hello world\",info=123,key=value]", successExpectedDataResult},
+        new object[] {"[shape =   box\nlabel  = \"Hello world\"\ninfo=123\n   key\n=\nvalue\n]", successExpectedDataResult},
+        new object[] {" [ shape = box label = \"Hello world\" info = 123 key = value ] ", successExpectedDataResult},
+        new object[] {"[ shape = box ; label = \"Hello world\" , info=123 \n, key = value]", successExpectedDataResult},
+        new object[] {"[\t shape \n= box ;\t  label =\n \"Hello world\" , info=123 \n,\n key  = \tvalue]", successExpectedDataResult},
+    };
+
+    private static IEnumerable<object[]> parseExceptionExpectedData => new object[][] {
+        new object[] {"[shape=bo=x,label=\"Hello world\",info=123,key=value]"},
+        new object[] {"[shape=box,label=\"Hello world\",info=,key=value]"},
+        new object[] {"[shape=box,label=\"Hello world\",info=123,key=]"},
+        new object[] {"[shape=box,label=\"Hello w\"orld\",info=123,key=value]"},
+    };
+
+    private static IEnumerable<object[]> breaksExceptionExpectedData => new object[][] {
+        new object[] {"shape=box,label=\"Hello world\",info=123,key=value]"},
+        new object[] {"[shape=box,abel=\"Hello world\",info=123,key=value"}
+    };
+
     [TestMethod]
-    public void FromString_2attr_parseSuccess()
+    [DynamicData(nameof(successExpectedData))]
+    public void FromString_FromDynamicDataTest(string input, Attribute[] expected)
     {
         var parser = new AttributesParser();
-        var input = "[shape=box, info = 123]";
-        
-        Attribute[] externed = new Attribute[] {
-            new Attribute("shape", "box"),
-            new Attribute("info", "123")
-        };
-
         Attribute[] actual = parser.FromString(input);
-
-        CollectionAssert.AreEqual(externed, actual);
+        CollectionAssert.AreEquivalent(expected, actual);
     }
 
     [TestMethod]
-    public void FromString_1attr_parseSuccess()
+    [DynamicData(nameof(parseExceptionExpectedData))]
+    [ExpectedException(typeof(DictionaryParser.ParseExeption))]
+    public void FromString_FromDynamicDataTest_ParseExeption(string input)
     {
-        var parser = new AttributesParser();
-        var input = "[shape = box]";
-
-        Attribute[] externed = new Attribute[] {
-            new Attribute("shape", "box")
-        };
-
-        Attribute[] actual = parser.FromString(input);
-
-        CollectionAssert.AreEqual(externed, actual);
-    }
-
-    [ExpectedException(typeof(DotSyntaxException))]
-    [TestMethod]
-    public void FromString_wrongSyntax_exeptionExpected()
-    {
-        string input = "[shape = box, info==true]";
         var parser = new AttributesParser();
         parser.FromString(input);
     }

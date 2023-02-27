@@ -11,5 +11,4 @@ public class SentenceParser
         _edgesParser = edgesParser;
     }
 
-
 }
