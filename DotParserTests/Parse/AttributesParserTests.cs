@@ -30,11 +30,8 @@ public class AttributesParserTests
         new object[] {"[shape=box,label=\"Hello world\",info=,key=value]"},
         new object[] {"[shape=box,label=\"Hello world\",info=123,key=]"},
         new object[] {"[shape=box,label=\"Hello w\"orld\",info=123,key=value]"},
-    };
-
-    private static IEnumerable<object[]> breaksExceptionExpectedData => new object[][] {
-        new object[] {"shape=box,label=\"Hello world\",info=123,key=value]"},
-        new object[] {"[shape=box,abel=\"Hello world\",info=123,key=value"}
+        new object[] {"abc [shape=box,label=\"Hello world\",info=123,key=value]"},
+        new object[] {"[shape=box,label=\"Hello world\",info=123,key=value]efewf"},
     };
 
     [TestMethod]

@@ -11,12 +11,12 @@ public class DictionaryParser
         var result = new Dictionary<string, string>();
 
         Buffer keyBuffer = new Buffer(
-            forbidden: null,
+            forbidden: new char[] {'[', ']', '{', '}', '(', ')'},
             ignore: new char[] {' ', '\t', '\n', ';', ','},
             switching: new char[] {'='}
         );
         Buffer valueBuffer = new Buffer(
-            forbidden: new char[] {'='},
+            forbidden: new char[] {'=', '[', ']', '{', '}', '(', ')' },
             ignore: new char[] {' ', ';', ',', '\t', '\n'},
             switching: new char[] {',', ';', ' ', '\t', '\n'}
         );

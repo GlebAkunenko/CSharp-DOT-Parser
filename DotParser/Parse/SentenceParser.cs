@@ -1,6 +1,8 @@
-﻿namespace DotParser.Parse;
+﻿using DotParser.DOT;
 
-public class SentenceParser
+namespace DotParser.Parse;
+
+public class SentenceParser : ISentenceParser
 {
     private IAttributeParser _attributeParser;
     private IEdgesParser _edgesParser;
@@ -9,6 +11,11 @@ public class SentenceParser
     {
         _attributeParser = attributeParser;
         _edgesParser = edgesParser;
+    }
+
+    public Sentence[] FromString(string line)
+    {
+        throw new NotImplementedException();
     }
 
 }
