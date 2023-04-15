@@ -15,17 +15,11 @@ public class Word : Lexeme
 
     public Word(string word = "") : base(word)
     {
-        foreach(char c in word) {
-            if (!char.IsLetterOrDigit(c))
-                throw new ArgumentException($"char {c} is unsupported");
-        }
         CheckKeyword();
     }
 
     public void AddSymbol(char symbol)
     {
-        if (!char.IsLetterOrDigit(symbol))
-            throw new ArgumentException($"char {symbol} is unsupported");
         Value += symbol;
         CheckKeyword();
     }

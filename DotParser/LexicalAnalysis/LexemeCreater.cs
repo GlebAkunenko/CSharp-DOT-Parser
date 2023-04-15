@@ -5,7 +5,6 @@ public static class LexemeCreater
     private static readonly LexemeFactory[] s_facories = new LexemeFactory[] {
         new WhiteSpace.Factory(),
         new Edge.Factory(),
-        new Quote.Factory(),
         new Comma.Factory(),
         new Semicolon.Factory(),
         new Equals.Factory(),

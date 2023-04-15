@@ -9,24 +9,41 @@ public static class LexemeScanner
         string current = "";
         List<Lexeme> result = new List<Lexeme>();
 
+        Word inQuotes = null;
+
         for (int i = 0; i < code.Length; i++) {
+
+            if (inQuotes is not null) {
+                if (new Quote.Factory().CanParse(code[i].ToString())) {
+                    result.Add(inQuotes);
+                    inQuotes = null;
+                }
+                else
+                    inQuotes.AddSymbol(code[i]);
+                continue;
+            }
+
+            if (new Quote.Factory().CanParse(code[i].ToString())) {
+                inQuotes = new Word();
+                continue;
+            }
+
             current += code[i];
             if (LexemeCreater.TryGetLexeme(current, out Lexeme lexeme)) {
                 current = "";
                 result.Add(lexeme);
             }
         }
-
+        
         return result;
     }
 
     public static Lexeme[] ScanLexemes(string code)
     {
         List<Lexeme> input = GetRawLexemes(code);
-        List<Lexeme> output = new List<Lexeme>();
+        List<Lexeme> output = new List<Lexeme>();;
         
         for(int i = 0; i < input.Count; i++) {
-
             if (i > 0) {
                 if (input[i] is WhiteSpace && input[i - 1] is WhiteSpace)
                     continue;

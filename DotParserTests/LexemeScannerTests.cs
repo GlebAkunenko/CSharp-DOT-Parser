@@ -1,4 +1,5 @@
 ﻿using DotParser.LexicalAnalysis;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -83,6 +84,30 @@ public class LexemeScannerTests
             new Edge.Factory().GetLexeme("--"),
             new WhiteSpace.Factory().GetLexeme(""),
             new Word("b"),
+            new WhiteSpace.Factory().GetLexeme("")
+        };
+
+        CollectionAssert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void UseQuotes()
+    {
+        string input = "    \"start\" -> \"edit message\" -> \" --    \ncool -- \"\r\n";
+
+        Lexeme[] actual = LexemeScanner.ScanLexemes(input);
+
+        Lexeme[] expected = new Lexeme[] {
+            new WhiteSpace.Factory().GetLexeme(" "),
+            new Word("start"),
+            new WhiteSpace.Factory().GetLexeme(" "),
+            new Edge.Factory().GetLexeme("->"),
+            new WhiteSpace.Factory().GetLexeme(" "),
+            new Word("edit message"),
+            new WhiteSpace.Factory().GetLexeme(" "),
+            new Edge.Factory().GetLexeme("->"),
+            new WhiteSpace.Factory().GetLexeme(" "),
+            new Word(" --    \ncool -- "),
             new WhiteSpace.Factory().GetLexeme("")
         };
 
