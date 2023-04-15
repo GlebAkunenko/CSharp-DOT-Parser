@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rFnfIK1tNl74FmYQZ75XJpEXK6bhjS2SpOMWuoLmFiv/sLp2DSUaEEl3r3pYx29BIoNfoBlUBZQGUQrVs+6tVg==",
+  "dgSpecHash": "d4B5WGmm6tlJGWq4aOWBG7+xI2Wa/bAKWcwgSRPkQRJxol7z2I5xUv6l0iKGORh3550q5VR3nVwcrteRgX/lKQ==",
   "success": true,
-  "projectFilePath": "D:\\Проекты\\Visual Studio\\DotParser\\DotParserTests\\DotParserTests.csproj",
+  "projectFilePath": "D:\\Projects\\Visual Studio\\DotParser\\DotParserTests\\DotParserTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "23vf5fyyFl9dbwLHuqJ/0PyzYjtpRnSU0IiMe/cg0qH1d2FLSIv7CZ8dHvaqPb57Y0YjQiOfTFKmkDyIKvv9OA==",
+  "dgSpecHash": "tV66WMawAh5h0bqmQk0O2g02nvgem674QS7nv6/ZOBRMkgZw8sMSOvDdZ1OUjVoniCkAS0sNxsQppLo0Cvu9zw==",
   "success": true,
-  "projectFilePath": "D:\\Проекты\\Visual Studio\\DotParser\\DotParser\\DotParser.csproj",
+  "projectFilePath": "D:\\Projects\\Visual Studio\\DotParser\\DotParser\\DotParser.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
