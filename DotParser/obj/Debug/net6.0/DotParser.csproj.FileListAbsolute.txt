@@ -28,3 +28,18 @@ D:\Projects\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\refint\DotParser.
 D:\Projects\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.pdb
 D:\Projects\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\DotParser.genruntimeconfig.cache
 D:\Projects\Visual Studio\DotParser\DotParser\obj\Debug\net6.0\ref\DotParser.dll
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.csproj.AssemblyReference.cache
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.AssemblyInfoInputs.cache
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.AssemblyInfo.cs
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.csproj.CoreCompileInputs.cache
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.dll
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\refint\DotParser.dll
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.pdb
+D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.exe
+D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.deps.json
+D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.runtimeconfig.json
+D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.dll
+D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.pdb
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.genruntimeconfig.cache
+D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\ref\DotParser.dll

@@ -6358,11 +6358,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Visual Studio\\DotParser\\DotParserTests\\DotParserTests.csproj",
+      "projectUniqueName": "D:\\Projects\\DotNET\\DotParser\\DotParserTests\\DotParserTests.csproj",
       "projectName": "DotParserTests",
-      "projectPath": "D:\\Projects\\Visual Studio\\DotParser\\DotParserTests\\DotParserTests.csproj",
+      "projectPath": "D:\\Projects\\DotNET\\DotParser\\DotParserTests\\DotParserTests.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Visual Studio\\DotParser\\DotParserTests\\obj\\",
+      "outputPath": "D:\\Projects\\DotNET\\DotParser\\DotParserTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6383,8 +6383,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\Visual Studio\\DotParser\\DotParser\\DotParser.csproj": {
-              "projectPath": "D:\\Projects\\Visual Studio\\DotParser\\DotParser\\DotParser.csproj"
+            "D:\\Projects\\DotNET\\DotParser\\DotParser\\DotParser.csproj": {
+              "projectPath": "D:\\Projects\\DotNET\\DotParser\\DotParser\\DotParser.csproj"
             }
           }
         }

@@ -7,7 +7,7 @@ public static class LexemeCreater
         new Edge.Factory(),
         new Comma.Factory(),
         new Semicolon.Factory(),
-        new Equals.Factory(),
+        new Equal.Factory(),
         new Bracket.Factory(),
         new Symbol.Factory()
     };
