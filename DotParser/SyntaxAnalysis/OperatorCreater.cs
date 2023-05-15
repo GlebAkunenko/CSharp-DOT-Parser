@@ -1,5 +1,5 @@
-﻿using DotParser.LexicalAnalysis;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace DotParser.SyntaxAnalysis;
@@ -9,8 +9,10 @@ public class OperatorCreater
     private readonly OperatorFactory[] _factories = new OperatorFactory[] {
         new EqualOperator.Factory(),
         new EqualSeparator.Factory(),
+        new AttrubuteOperator.Factory(),
+        new KeywordOperator.Factory(),
         new CommaOperator.Factory(),
-        new EdgeOperator.Factory()
+        new EdgeOperator.Factory(),
     };
 
     public List<Element> Elements { get; init; }
@@ -24,7 +26,7 @@ public class OperatorCreater
     {
         for (int i = 0; i < Elements.Count; i++) {
             Element current = Elements[i];
-            if (current is Operator)
+            if (current is Operator && !factory.AllowOperatorAsBase)
                 continue;
             if (factory.IsRelevant(current)) {
                 Operator op = factory.CreateOperator(current);
@@ -66,7 +68,7 @@ public class OperatorCreater
     //    }
     //}
 
-    public void Modify()
+    public void MakeOperators()
     {
         foreach (OperatorFactory factory in _factories)
             CreateOperators(factory);

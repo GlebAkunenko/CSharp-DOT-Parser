@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotParser", "DotParser\DotParser.csproj", "{F3585A22-E43F-49AD-80E0-5C41F966046E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotParser", "DotParser\DotParser.csproj", "{F3585A22-E43F-49AD-80E0-5C41F966046E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotParserTests", "DotParserTests\DotParserTests.csproj", "{70478C48-9D22-4C1D-A0F7-E254979DF23F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotParserTests", "DotParserTests\DotParserTests.csproj", "{70478C48-9D22-4C1D-A0F7-E254979DF23F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
