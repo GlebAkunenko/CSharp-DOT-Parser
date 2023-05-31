@@ -1,6 +1,6 @@
 ﻿namespace DotParser.LexicalAnalysis;
 
-public static class LexemeCreater
+public class LexemeCreater
 {
     private static readonly LexemeFactory[] s_facories = new LexemeFactory[] {
         new WhiteSpace.Factory(),

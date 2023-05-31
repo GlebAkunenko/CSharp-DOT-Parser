@@ -3,8 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Runtime.CompilerServices;
 using Edge = DotParser.DOT.Edge;
 
-[assembly: InternalsVisibleTo("DotParser")]
-
 namespace DotParserTests;
 
 public static class AttributesAssert

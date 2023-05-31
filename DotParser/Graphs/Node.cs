@@ -4,11 +4,7 @@ public class Node
 {
     public DOT.Node Source { get; protected set; }
 
-    public Node() { }
-
-    public Node(DOT.Node source) => Init(source);
-
-    public virtual void Init(DOT.Node source) => Source = source;
+    public Node(DOT.Node source) => Source = source;
 
     public override bool Equals(object? obj)
     {

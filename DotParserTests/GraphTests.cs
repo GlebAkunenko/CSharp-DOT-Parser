@@ -35,7 +35,7 @@ public class GraphTests
             }
         };
 
-        Graph<GNode, GEdge> graph = new(input);
+        Graph graph = new GraphBuilder().BuildGraph(input);
 
         Dictionary<GNode, List<GNode>> actual = graph.GetAdjacencyList();
 

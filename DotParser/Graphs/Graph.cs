@@ -1,36 +1,24 @@
 ﻿namespace DotParser.Graphs;
 
-public class Graph<N, E> 
-    where N : Node, new()
-    where E : Edge, new()
+public class Graph 
 {
-    private List<N> _nodes;
-    private List<E> _edges;
+    private List<Node> _nodes;
+    private List<Edge> _edges;
 
-    public Graph(RawGraph source)
+    public Graph(List<Node> nodes, List<Edge> edges)
     {
-        _nodes = new List<N>();
-        foreach (DOT.Node node in source.Nodes) {
-            N add_node = new N();
-            add_node.Init(node);
-            _nodes.Add(add_node);
-        }
-        _edges = new List<E>();
-        foreach (DOT.Edge edge in source.Edges) {
-            E add_edge = new E();
-            add_edge.Init(edge);
-            _edges.Add(add_edge);
-        }
+        _nodes = nodes;
+        _edges = edges;
     }
 
-    public Dictionary<N, List<N>> GetAdjacencyList()
+    public Dictionary<Node, List<Node>> GetAdjacencyList()
     {
-        var result = new Dictionary<N, List<N>>();
-        foreach (N node in _nodes)
-            result[node] = new List<N>();
-        foreach(E edge in _edges) {
-            N? from = _nodes.Find((node) => node.Source == edge.Source.Left);
-            N? to = _nodes.Find((node) => node.Source == edge.Source.Right);
+        var result = new Dictionary<Node, List<Node>>();
+        foreach (Node node in _nodes)
+            result[node] = new List<Node>();
+        foreach(Edge edge in _edges) {
+            Node? from = _nodes.Find((node) => node.Source == edge.Source.Left);
+            Node? to = _nodes.Find((node) => node.Source == edge.Source.Right);
             if (from is null || to is null) throw new Exception();
             result[from].Add(to);
         }
