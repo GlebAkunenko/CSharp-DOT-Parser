@@ -71,7 +71,7 @@ public class EdgeOperator : Operator
         foreach(Word u in from) {
             foreach (Word v in to) {
                 result.Add(new Tuple<Word, Word>(u, v));
-                if (_isArrow)
+                if (!_isArrow)
                     result.Add(new Tuple<Word, Word>(v, u));
             }
         }

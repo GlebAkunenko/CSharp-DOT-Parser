@@ -7,23 +7,49 @@ using System.Threading.Tasks;
 
 namespace DotParser.DOT;
 
-public struct Edge
+public struct Edge : IEquatable<Edge>
 {
-    public Node First { init; get; }
-    public Node Second { init; get; }
+    public Node Left { init; get; }
+    public Node Right { init; get; }
     public Attribute[] Attributes { init; get; }
 
-    public Edge(Node first, Node second, Attribute[] attributes = null)
+    public Edge(Node left, Node right, Attribute[] attributes = null)
     {
-        First = first;
-        Second = second;
+        Left = left;
+        Right = right;
         Attributes = attributes;
     }
 
     public Edge(string firstNode, string secondNode, Attribute[] edgeAttributes = null)
     {
-        First = new Node(firstNode);
-        Second = new Node(secondNode);
+        Left = new Node(firstNode);
+        Right = new Node(secondNode);
         Attributes = edgeAttributes;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Edge edge && Equals(edge);
+    }
+
+    public bool Equals(Edge other)
+    {
+        return Left.Equals(other.Left) &&
+               Right.Equals(other.Right);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Left, Right);
+    }
+
+    public static bool operator ==(Edge left, Edge right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(Edge left, Edge right)
+    {
+        return !(left == right);
     }
 }
