@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotParser", "DotParser\DotP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotParserTests", "DotParserTests\DotParserTests.csproj", "{70478C48-9D22-4C1D-A0F7-E254979DF23F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exambles", "Exambles\Exambles.csproj", "{4A79582F-3151-4E01-9458-87898CF9D358}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{70478C48-9D22-4C1D-A0F7-E254979DF23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70478C48-9D22-4C1D-A0F7-E254979DF23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70478C48-9D22-4C1D-A0F7-E254979DF23F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A79582F-3151-4E01-9458-87898CF9D358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A79582F-3151-4E01-9458-87898CF9D358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A79582F-3151-4E01-9458-87898CF9D358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A79582F-3151-4E01-9458-87898CF9D358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

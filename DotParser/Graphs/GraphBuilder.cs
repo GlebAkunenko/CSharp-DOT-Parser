@@ -1,6 +1,8 @@
 ﻿namespace DotParser.Graphs;
 
-public class GraphBuilder
+public class GraphBuilder<N, E>
+    where N: Node
+    where E: Edge
 {
     private NodeFactory _nodeFactory;
     private EdgeFactory _edgeFactory;
@@ -17,7 +19,7 @@ public class GraphBuilder
         _edgeFactory = edgeFactory;
     }
 
-    public Graph BuildGraph(RawGraph rawGraph)
+    public Graph<N, E> BuildGraph(RawGraph rawGraph)
     {
         List<Node> nodes = new List<Node>();
         List<Edge> edges = new List<Edge>();
@@ -25,6 +27,6 @@ public class GraphBuilder
             nodes.Add(_nodeFactory.GetNode(node));
         foreach (DOT.Edge edge in rawGraph.Edges)
             edges.Add(_edgeFactory.GetEdge(edge));
-        return new Graph(nodes, edges);
+        return new Graph<N, E>(nodes, edges);
     }
 }

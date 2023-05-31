@@ -36,10 +36,7 @@ D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.csproj.CoreCom
 D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.dll
 D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\refint\DotParser.dll
 D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.pdb
-D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.exe
 D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.deps.json
-D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.runtimeconfig.json
 D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.dll
 D:\Projects\DotNET\DotParser\DotParser\bin\Debug\net6.0\DotParser.pdb
-D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\DotParser.genruntimeconfig.cache
 D:\Projects\DotNET\DotParser\DotParser\obj\Debug\net6.0\ref\DotParser.dll
