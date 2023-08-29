@@ -207,9 +207,6 @@ D:\Projects\Visual Studio\DotParser\DotParserTests\obj\Debug\net6.0\DotParserTes
 D:\Projects\Visual Studio\DotParser\DotParserTests\obj\Debug\net6.0\DotParserTests.genruntimeconfig.cache
 D:\Projects\Visual Studio\DotParser\DotParserTests\obj\Debug\net6.0\ref\DotParserTests.dll
 D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\CoverletSourceRootsMapping
-D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\DotParser.deps.json
-D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\DotParser.runtimeconfig.json
-D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\DotParser.exe
 D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\testhost.exe
 D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\testhost.dll
 D:\Projects\DotNET\DotParser\DotParserTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll

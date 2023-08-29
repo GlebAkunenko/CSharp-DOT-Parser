@@ -1,7 +1,7 @@
 ﻿using DotParser.Graphs;
 using System.Net.Http.Headers;
 
-namespace Exambles.SimpleMathExaple;
+namespace Exambles.SimpleMathExample;
 
 public class MyNode : Node
 {
@@ -33,10 +33,12 @@ public class Runner : ExampleRunner
 
         Dictionary<MyNode, List<MyNode>> adjacencyList = graph.GetAdjacencyList();
 
-        foreach(MyNode node in adjacencyList.Keys) {
+        foreach (MyNode node in adjacencyList.Keys)
+        {
             Console.Write(node.Value.ToString() + ": ");
             int sum = 0;
-            foreach(MyNode child in adjacencyList[node]) {
+            foreach (MyNode child in adjacencyList[node])
+            {
                 Console.Write(child.Value.ToString() + " + ");
                 sum += child.Value;
             }

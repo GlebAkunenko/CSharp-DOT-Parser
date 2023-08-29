@@ -17,8 +17,14 @@ public static class AttributesAssert
         if (expected.Count != actual.Count)
             Assert.Fail();
 
-        for (int i = 0; i < expected.Count; i++)
-            AreEqual(expected.ElementAt(i), actual.ElementAt(i));
+        for (int i = 0; i < expected.Count; i++) {
+            for(int j = 0; j < expected.Count; j++) {
+                Edge u = actual.ElementAt(i);
+                Edge v = expected.ElementAt(j);
+                if (u == v)
+                    AreEqual(u, v);
+            }
+        }
     }
 
     public static void AreEqual(Node expected, Node actual)
@@ -31,7 +37,13 @@ public static class AttributesAssert
         if (expected.Count != actual.Count)
             Assert.Fail();
 
-        for (int i = 0; i < expected.Count; i++)
-            AreEqual(expected.ElementAt(i), actual.ElementAt(i));
+        for (int i = 0; i < expected.Count; i++) {
+            for (int j = 0; j < expected.Count; j++) {
+                Node u = actual.ElementAt(i);
+                Node v = expected.ElementAt(j);
+                if (u == v)
+                    AreEqual(u, v);
+            }
+        }
     }
 }

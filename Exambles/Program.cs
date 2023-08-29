@@ -1,6 +1,6 @@
 ﻿using Exambles;
 
-ExampleRunner runner = new Exambles.SimpleMathExaple.Runner();
+ExampleRunner runner = new Exambles.SimpleMathExample.Runner();
 
 string path = "D:\\Projects\\DotNET\\DotParser\\Exambles\\SimpleMathGraph.txt";
 
